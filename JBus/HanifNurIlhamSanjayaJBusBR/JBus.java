@@ -8,7 +8,10 @@ package JBus.HanifNurIlhamSanjayaJBusBR;
  * @version (a version number or a date)
  */
 public class JBus {
-
+    public void main(String[] args) {
+        
+    }
+    
     public int getBusId() {
         return 0;
     }
