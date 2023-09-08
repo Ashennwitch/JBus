@@ -23,7 +23,7 @@ public class JBus {
 
     public float getDiscountPercentage(int beforeDiscount, int afterDiscount) {
 
-        if (beforeDiscount <= afterDiscount) {
+        if (beforeDiscount < afterDiscount) {
             return 0.0f; 
         }
   
