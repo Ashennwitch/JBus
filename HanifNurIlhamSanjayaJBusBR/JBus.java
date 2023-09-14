@@ -25,23 +25,18 @@ public class JBus {
     }
 
     public float getDiscountPercentage(int beforeDiscount, int afterDiscount) {
-
-        if (beforeDiscount < afterDiscount) {
-            return 0.0f; 
+        if (beforeDiscount > afterDiscount) {
+            return ((float)(beforeDiscount - afterDiscount) / beforeDiscount) * 100;
+        } else {
+            return 0.0f;
         }
-  
-        float discountPercentage = ((beforeDiscount - afterDiscount) * 100.0f) / beforeDiscount;
-        return discountPercentage;
     }
 
-    public float getDiscountedPrice(int price, float discountPercentage) {
-
+    public int getDiscountedPrice(int price, float discountPercentage) {
         if (discountPercentage > 100.0f) {
-            discountPercentage = 100.0f; 
+            discountPercentage = 100.0f;
         }
-
-        float discountedPrice = price * (1 - discountPercentage / 100.0f);
-        return discountedPrice;
+        return (int)(price - (price * (discountPercentage / 100.0f)));
     }
 
     public int getOriginalPrice(int discountedPrice, float discountPercentage) {
