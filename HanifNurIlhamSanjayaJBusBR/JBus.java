@@ -1,10 +1,10 @@
-package JBus.HanifNurIlhamSanjayaJBusBR;
+package HanifNurIlhamSanjayaJBusBR;
 
 
 /**
  * Write a description of class JBus here.
  *
- * @author (your name)
+ * @author Hanif Nur Ilham Sanjaya
  * @version (a version number or a date)
  */
 public class JBus {
