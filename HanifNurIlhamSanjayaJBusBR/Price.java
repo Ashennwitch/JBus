@@ -32,4 +32,34 @@ public class Price {
         this.rebate = discount;
         this.discount = 0;
     }
+    
+        
+    public double getDiscountedPrice(double price, int discount) {
+    // Apabila discount lebih dari 100.0, anggap 100.0
+    if (discount > 100) {
+        this.discount = 100;
+        return 0.0f;
+    }
+
+    // Apabila discount adalah 100.0, kembalikan 0.0
+    else if (discount == 100) {
+        return 0.0f;
+    }
+
+    else {
+    // Kembalikan nilai setelah field price dipotong dengan persentase diskon yang ditentukan
+        return (double)(price - (price * (discount / 100)));
+  }
+
+  }
+  
+  public double getRebatedPrice(int priceDipotong,double rebate) {
+    if (rebate > price) {
+         //pastikan nilai dikembalikan tidak bisa negatif 
+         return price;
+      }
+      return price - rebate;
+    }
 }
+
+
