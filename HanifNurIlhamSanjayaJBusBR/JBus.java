@@ -44,8 +44,6 @@ public class JBus {
         }
     }
 
-
-    
     public int getDiscountedPrice(int price, float discountPercentage) {
         if (discountPercentage > 100.0f) {
             discountPercentage = 100.0f;

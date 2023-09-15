@@ -33,7 +33,6 @@ public class Price {
         this.discount = 0;
     }
     
-        
     public double getDiscountedPrice(double price, int discount) {
     // Apabila discount lebih dari 100.0, anggap 100.0
     if (discount > 100) {
@@ -49,7 +48,7 @@ public class Price {
     else {
     // Kembalikan nilai setelah field price dipotong dengan persentase diskon yang ditentukan
         return (double)(price - (price * (discount / 100)));
-  }
+   }
 
   }
   
@@ -58,7 +57,8 @@ public class Price {
          //pastikan nilai dikembalikan tidak bisa negatif 
          return price;
       }
-      return price - rebate;
+      
+    return price - rebate;
     }
 }
 
