@@ -8,7 +8,7 @@ package HanifNurIlhamSanjayaJBusBR;
  * @version (a version number or a date)
  */
 public class JBus {
-    public void main(String[] args) {
+    public static void main(String[] args) {
         
     }
     
@@ -40,7 +40,6 @@ public class JBus {
     }
 
     public int getOriginalPrice(int discountedPrice, float discountPercentage) {
-
         int originalPrice = (int)(discountedPrice / (1 - discountPercentage / 100.0f));
         return originalPrice;
     }
@@ -50,7 +49,6 @@ public class JBus {
     }
 
     public int getAdminFee(int price) {
-      
         float adminFeePercentage = getAdminFeePercentage();
         int adminFee = (int)(price * adminFeePercentage);
         return adminFee;
