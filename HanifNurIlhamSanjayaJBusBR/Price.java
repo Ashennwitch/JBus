@@ -4,7 +4,7 @@ package HanifNurIlhamSanjayaJBusBR;
 /**
  * Write a description of class Price here.
  *
- * @author (your name)
+ * @author (Hanif Nur Ilham Sanjaya)
  * @version (a version number or a date)
  */
 public class Price {
