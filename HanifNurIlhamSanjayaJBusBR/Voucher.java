@@ -31,14 +31,7 @@ public class Voucher
         this.type = type;
     }
 
-    /**
-     * An example of a method - replace this comment with your own
-     *
-     * @param  y  a sample parameter for a method
-     * @return    the sum of x and y
-     */
     public boolean isUsed() {
-        // put your code here
         return used;
     }
     
@@ -52,14 +45,25 @@ public class Voucher
     }
     
     public double apply(Price price) {
-        if (!used) {
-            if (type == type.DISCOUNT) {
-                return price.price - (price.price * (1 - cut / 100));
+        if (canApply(price) == true) {
+            
+            if (type == Type.DISCOUNT) {
+                if (cut > 100) {
+                    cut = 100;
+                }
+                else if (cut == 100) {
+                    return 0;
+                }
+                return price.price - (price.price * cut / 100);
             }
-            else if (type == type.REBATE) {
+            
+            else if (type == Type.REBATE) {
+                if (cut > price.price) {
+                    return 0;
+                }
                 return price.price - cut;
             }
-            used = true;
+            this.used = true;
         }
         return price.price;
     }
