@@ -43,7 +43,7 @@ public class Voucher
     }
     
     public boolean canApply(Price price) {
-        if (Price.price > minimum && used == false) {
+        if (price.price > minimum && used == false) {
             return true;
         }
         else {
@@ -54,14 +54,13 @@ public class Voucher
     public double apply(Price price) {
         if (!used) {
             if (type == type.DISCOUNT) {
-                return Price.price - (Price.price * (1 - cut / 100));
+                return price.price - (price.price * (1 - cut / 100));
             }
             else if (type == type.REBATE) {
-                
+                return price.price - cut;
             }
             used = true;
         }
-        
-        
+        return price.price;
     }
 }
