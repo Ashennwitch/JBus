@@ -1,6 +1,5 @@
 package HanifNurIlhamSanjayaJBusBR;
 
-
 /**
  * Write a description of class Price here.
  *
@@ -8,9 +7,9 @@ package HanifNurIlhamSanjayaJBusBR;
  * @version (a version number or a date)
  */
 public class Price {
-    double rebate;
-    double price;
-    int discount;
+    public double rebate;
+    public double price;
+    public int discount;
 
     // no2
     public Price(double price) {
@@ -29,37 +28,33 @@ public class Price {
     // no4
     public Price(double price, double rebate) {
         this.price = price;
-        this.rebate = discount;
+        this.rebate = rebate;
         this.discount = 0;
     }
-    
-    public double getDiscountedPrice(double price, int discount) {
-    // Apabila discount lebih dari 100.0, anggap 100.0
-    if (discount > 100) {
-        this.discount = 100;
-        return 0.0f;
+
+    private double getDiscountedPrice() { // ada kesalahan logic
+        // Apabila discount lebih dari 100.0, anggap 100.0
+        if (discount > 100) {
+            this.discount = 100;
+            return 0.0d;
+        }
+        // Apabila discount adalah 100.0, kembalikan 0.0
+        else if (discount == 100) {
+            return 0.0d;
+        } else {
+            // Kembalikan nilai setelah field price dipotong dengan persentase diskon yang
+            // ditentukan
+            return (double) (price - (price * (discount / 100)));
+        }
+
     }
 
-    // Apabila discount adalah 100.0, kembalikan 0.0
-    else if (discount == 100) {
-        return 0.0f;
-    }
+    private double getRebatedPrice() { // ada kesalahan logic
+        if (rebate > price) {
+            // pastikan nilai dikembalikan tidak bisa negatif
+            return 0.0d;
+        }
 
-    else {
-    // Kembalikan nilai setelah field price dipotong dengan persentase diskon yang ditentukan
-        return (double)(price - (price * (discount / 100)));
-   }
-
-  }
-  
-  public double getRebatedPrice(int priceDipotong,double rebate) {
-    if (rebate > price) {
-         //pastikan nilai dikembalikan tidak bisa negatif 
-         return price;
-      }
-      
-    return price - rebate;
+        return price - rebate;
     }
 }
-
-

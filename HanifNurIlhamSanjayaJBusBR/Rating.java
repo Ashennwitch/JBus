@@ -9,8 +9,8 @@ package HanifNurIlhamSanjayaJBusBR;
  */
 
 public class Rating {
-    long count;
-    long total;
+    private long count;
+    private long total;
 
     public Rating() {
         this.count = 0;

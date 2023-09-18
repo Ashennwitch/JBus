@@ -8,7 +8,6 @@ package HanifNurIlhamSanjayaJBusBR;
  */
 public class JBus {
 
-
     public static void main(String[] args) {
         Bus testBus = createBus();
         System.out.println(testBus.name);
@@ -22,7 +21,6 @@ public class JBus {
         Bus bus = new Bus("hanif bus", Facility.LUNCH, price, 25);
         return bus;
     }
-    
     
     public int getBusId() {
         return 0;
