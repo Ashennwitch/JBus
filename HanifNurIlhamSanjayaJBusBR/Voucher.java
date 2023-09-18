@@ -48,20 +48,20 @@ public class Voucher
         if (canApply(price) == true) {
             
             if (type == Type.DISCOUNT) {
-                if (cut > 100) {
-                    cut = 100;
+                if (this.cut > 100) {
+                    this.cut = 100;
                 }
-                else if (cut == 100) {
+                else if (this.cut == 100) {
                     return 0;
                 }
-                return price.price - (price.price * cut / 100);
+                return price.price - (price.price * (this.cut / 100));
             }
             
             else if (type == Type.REBATE) {
-                if (cut > price.price) {
+                if (this.cut > price.price) {
                     return 0;
                 }
-                return price.price - cut;
+                return price.price - this.cut;
             }
             this.used = true;
         }
