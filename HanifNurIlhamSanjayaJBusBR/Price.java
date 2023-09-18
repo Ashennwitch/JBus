@@ -46,13 +46,12 @@ public class Price {
             // ditentukan
             return (double) (price - (price * (discount / 100)));
         }
-
     }
 
     private double getRebatedPrice() { // ada kesalahan logic
         if (rebate > price) {
             // pastikan nilai dikembalikan tidak bisa negatif
-            return 0.0d;
+            this.discount = 0;
         }
 
         return price - rebate;
