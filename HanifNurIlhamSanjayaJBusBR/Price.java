@@ -32,7 +32,7 @@ public class Price {
         this.discount = 0;
     }
 
-    private double getDiscountedPrice() { // ada kesalahan logic
+    private double getDiscountedPrice() { 
         // Apabila discount lebih dari 100.0, anggap 100.0
         if (discount > 100) {
             this.discount = 100;
@@ -51,9 +51,10 @@ public class Price {
     private double getRebatedPrice() { // ada kesalahan logic
         if (rebate > price) {
             // pastikan nilai dikembalikan tidak bisa negatif
-            this.discount = 0;
-        }
-
+            return 0.0d;
+        } 
+        else {
         return price - rebate;
+        }
     }
 }

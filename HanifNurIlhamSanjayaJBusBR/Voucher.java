@@ -51,10 +51,10 @@ public class Voucher
         }
     }
     
-    public boolean apply(Price price) {
+    public double apply(Price price) {
         if (!used) {
             if (type == type.DISCOUNT) {
-                return price - (price * (1 - cut / 100));
+                return Price.price - (Price.price * (1 - cut / 100));
             }
             else if (type == type.REBATE) {
                 
