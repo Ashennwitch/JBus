@@ -7,9 +7,9 @@ package HanifNurIlhamSanjayaJBusBR;
  * @author (your name)
  * @version (a version number or a date)
  */
-public class Voucher
+
+public class Voucher extends Serializable
 {
-    // instance variables - replace the example below with your own
     public String name;
     private boolean used;
     public double minimum;
@@ -20,9 +20,11 @@ public class Voucher
     /**
      * Constructor for objects of class Voucher
      */
-    public Voucher(String name, int code, Type type, double minimum, double cut)
+
+    public Voucher(int id, String name, int code, Type type, double minimum, double cut)
     {
         // initialise instance variables
+        super(id);
         this.name = name;
         this.used = false;
         this.minimum = minimum;
@@ -45,6 +47,7 @@ public class Voucher
     }
     
     public double apply(Price price) {
+        this.used = true;
         if (canApply(price) == true) {
             
             if (type == Type.DISCOUNT) {
@@ -63,7 +66,7 @@ public class Voucher
                 }
                 return price.price - this.cut;
             }
-            this.used = true;
+            //this.used = true; //msh salah
         }
         return price.price;
     }

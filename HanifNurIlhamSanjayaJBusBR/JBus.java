@@ -7,7 +7,7 @@ package HanifNurIlhamSanjayaJBusBR;
  * @version (a version number or a date)
  */
 public class JBus {
-
+ 
     public static void main(String[] args) {
         Bus testBus = createBus();
         System.out.println(testBus.name);
@@ -16,12 +16,12 @@ public class JBus {
         System.out.println(testBus.capacity);
     }
     
-    public static Bus createBus() {
+   public static Bus createBus() {
         Price price = new Price(750000, 5);
-        Bus bus = new Bus("hanif bus", Facility.LUNCH, price, 25);
+        Bus bus = new Bus(2403,"hanif bus", Facility.LUNCH, price, 25);
         return bus;
     }
-    
+   
     public int getBusId() {
         return 0;
     }
