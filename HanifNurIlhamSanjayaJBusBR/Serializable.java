@@ -17,25 +17,3 @@ public class Serializable
         this.id = id;
     }
 }
-
-    /*   
-    public class Account extends Serializable {
-        // ...
-    }
-    
-    public class Bus extends Serializable {
-        // ...
-    }
-    
-    public class Renter extends Serializable {
-        // ...
-    }
-    
-    public class Invoice extends Serializable {
-        // ...
-    }
-    
-    public class Voucher extends Serializable {
-        // ...
-    }
-*/
