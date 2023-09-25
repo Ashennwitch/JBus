@@ -16,6 +16,8 @@ public class Invoice extends Serializable
     public int renterId;
     public Account buyer;
     public Renter renter;
+    public BusRating rating;
+    public PaymentStatus status;
 
     /**
      * Constructor for objects of class Invoice
@@ -27,6 +29,9 @@ public class Invoice extends Serializable
         this.buyerId = buyerId;
         this.renterId = renterId;
         this.time = time;
+        rating = BusRating.NONE;
+        status = PaymentStatus.WAITING;
+        
     }
     
     public Invoice(int id, Account buyer, Renter renter, String time) {
@@ -34,9 +39,19 @@ public class Invoice extends Serializable
         this.buyer = buyer;
         this.renter = renter;
         this.time = time;
+        this.buyerId = buyerId;
+        this.renterId = renterId;
+    }
+    
+    public enum BusRating {
+        NONE, NEUTRAL, GOOD, BAD
+    }
+    
+    public enum PaymentStatus {
+        FAILED, WAITING, SUCCESS
     }
  
-    public String print() {
-        return "Invoice Id : " + super.id;
+    public String toString() {
+        return "Invoice Id: " + super.id + "\n" + "Invoice Buyer Id: " + buyerId + "/n" + "Invoice Renter Id: " + renterId + "\n" + "Time: " + time + "\n";
     }
 }

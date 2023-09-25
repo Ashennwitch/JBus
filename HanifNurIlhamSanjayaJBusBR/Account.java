@@ -23,4 +23,8 @@ public class Account extends Serializable
         this.email = email;
         this.password = password;
     }
+    
+    public String toString() {
+        return "Account ID: " + super.id + "%nAccount name: " + name + "%nEmail: " + email + "%nPassword: " + password;
+    }
 }

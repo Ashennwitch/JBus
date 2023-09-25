@@ -10,7 +10,7 @@ package HanifNurIlhamSanjayaJBusBR;
 public class Payment extends Invoice
 {
     // instance variables - replace the example below with your own
-    protected int busId;
+    private int busId;
     public String departureDate;
     public String busSeat;
 
@@ -36,7 +36,7 @@ public class Payment extends Invoice
         
     }
 
-    public String print() {
+    public String toString() {
         return "id:" + super.id + "buyer id" + buyerId + "renter Id:" + renterId + "time:" + time + "departureDate:" + departureDate + "busSeat:" + busSeat;
     }
     

@@ -12,18 +12,20 @@ public class Station extends Serializable
     // instance variables - replace the example below with your own
     public City city;
     public String stationName;
+    String address;
 
     /**
      * Constructor for objects of class Station
      */
-    public Station(int id, String stationName, City city)
+    public Station(int id, String stationName, City city, String address)
     {
         super(id);// initialise instance variables
         this.city = city;
-        this. stationName = stationName;
+        this.stationName = stationName;
+        this.address = address;
     }
     
-    public String print() {
-        return "City:" + city + "Station Name:" + stationName;
+    public String toString() {
+        return "City:" + city + "Station Name:" + stationName + "Addres: " + address;
     }
 }
