@@ -41,6 +41,8 @@ public class Invoice extends Serializable
         this.time = time;
         this.buyerId = buyerId;
         this.renterId = renterId;
+                rating = BusRating.NONE;
+        status = PaymentStatus.WAITING;
     }
     
     public enum BusRating {
