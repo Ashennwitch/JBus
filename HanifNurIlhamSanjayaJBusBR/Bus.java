@@ -7,7 +7,7 @@ package HanifNurIlhamSanjayaJBusBR;
  * @author (your name)
  * @version (a version number or a date)
  */
-public class Bus extends Serializable
+public class Bus extends Serializable implements FileParser
 {
     public int capacity;
     public Facility facility;
@@ -30,7 +30,24 @@ public class Bus extends Serializable
         this.arrival = arrival;
     }
     
+    public void write() {
+
+    }
+
+    @Override
+    public boolean read(String filename) {
+        return false; // Mengembalikan true jika berhasil membaca, false jika gagal
+    }  
+    
     public String toString() {
-        return "Bus Id :" + super.id + "Bus name: " + name + "Bus facility: " + facility + "Bus price: " + price + "Bus capcity: " + capacity + "Bus type: " + busType + "Bus city: " + city + "Bus departure: " + departure + "Bus arrival: " + arrival;
+        return "Bus Id: " + super.id + "\n"
+            + "Bus name: " + name + "\n"
+            + "Bus facility: " + facility + "\n"
+            + "Bus price: " + price + "\n"
+            + "Bus capacity: " + capacity + "\n"
+            + "Bus type: " + busType + "\n"
+            + "Bus city: " + city + "\n"
+            + "Bus departure: " + departure + "\n"
+            + "Bus arrival: " + arrival + "\n";
     }
 }

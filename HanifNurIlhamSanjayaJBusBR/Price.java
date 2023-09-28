@@ -59,6 +59,6 @@ public class Price {
     }
     
     public String toString() {
-        return "Price: " + price + "%nrebate" + rebate;
+        return "Price: " + price + "\nRebate: " + rebate;
     }
 }

@@ -1,5 +1,5 @@
 package HanifNurIlhamSanjayaJBusBR;
-
+import java.util.Calendar;
 
 /**
  * Write a description of class Invoice here.
@@ -11,7 +11,7 @@ public class Invoice extends Serializable
 {
     
     // instance variables - replace the example below with your own
-    public String time;
+    public Calendar time;
     public int buyerId;
     public int renterId;
     public Account buyer;
@@ -22,13 +22,13 @@ public class Invoice extends Serializable
     /**
      * Constructor for objects of class Invoice
      */
-    public Invoice(int id, int buyerId, int renterId, String time)
+    protected Invoice(int id, int buyerId, int renterId, String time)
     {
         // initialise instance variables
         super(id);
         this.buyerId = buyerId;
         this.renterId = renterId;
-        this.time = time;
+        this.time = Calendar.getInstance();
         rating = BusRating.NONE;
         status = PaymentStatus.WAITING;
         
@@ -38,10 +38,10 @@ public class Invoice extends Serializable
         super(id);
         this.buyer = buyer;
         this.renter = renter;
-        this.time = time;
+        this.time = Calendar.getInstance();
         this.buyerId = buyerId;
         this.renterId = renterId;
-                rating = BusRating.NONE;
+        rating = BusRating.NONE;
         status = PaymentStatus.WAITING;
     }
     
@@ -54,6 +54,9 @@ public class Invoice extends Serializable
     }
  
     public String toString() {
-        return "Invoice Id: " + super.id + "\n" + "Invoice Buyer Id: " + buyerId + "/n" + "Invoice Renter Id: " + renterId + "\n" + "Time: " + time + "\n";
+        return "Invoice Id: " + super.id + "\n"
+            + "Invoice Buyer Id: " + buyerId + "\n"
+            + "Invoice Renter Id: " + renterId + "\n"
+            + "Time: " + time.getTime() + "\n";
     }
 }
