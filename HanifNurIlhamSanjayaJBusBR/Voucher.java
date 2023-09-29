@@ -33,8 +33,8 @@ public class Voucher extends Serializable implements FileParser
         this.type = type;
     }
 
-    public void write() {
-
+    public Object write() {
+        return null;
     }
 
     @Override

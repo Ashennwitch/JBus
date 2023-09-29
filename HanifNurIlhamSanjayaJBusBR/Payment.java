@@ -1,46 +1,38 @@
 package HanifNurIlhamSanjayaJBusBR;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 
-/**
- * Write a description of class Payment here.
- *
- * @author (your name)
- * @version (a version number or a date)
- */
-public class Payment extends Invoice
-{
-    // instance variables - replace the example below with your own
+public class Payment extends Invoice {
+    private Calendar departureDate;
     private int busId;
-    public String departureDate;
-    public String busSeat;
+    private String busSeat;
 
-    /**
-     * Constructor for objects of class Payment
-     */
-    public Payment(int id, int buyerId, int renterId, String time, int busId, String departureDate, String busSeat)
-    {
-       //this.renterId = renterId;
-       super(id, buyerId, renterId, time);
-       //this.time = time;\
-       this.busId = busId;
-       this.departureDate = departureDate;
-       this.busSeat = busSeat;
-       
-    }
-    
-    public Payment(int id, Account buyer, Renter renter, String time, int busId, String departureDate, String busSeat) {
-        super(id, buyer, renter, time);
+    public Payment(int id, int buyerId, int renterId, int busId, String busSeat) {
+        super(id, buyerId, renterId, Calendar.getInstance());
         this.busId = busId;
-        this.departureDate=departureDate;
         this.busSeat = busSeat;
-        
+        this.departureDate = Calendar.getInstance();
+        this.departureDate.add(Calendar.DATE, 2); // Menambahkan 2 hari dari waktu saat ini
     }
 
-    public String toString() {
-        return "id:" + super.id + "buyer id" + buyerId + "renter Id:" + renterId + "time:" + time + "departureDate:" + departureDate + "busSeat:" + busSeat;
+    public Payment(int id, Account buyer, Renter renter, int busId, String busSeat) {
+        super(id, buyer, renter, Calendar.getInstance());
+        this.busId = busId;
+        this.busSeat = busSeat;
+        this.departureDate = Calendar.getInstance();
+        this.departureDate.add(Calendar.DATE, 2); // Menambahkan 2 hari dari waktu saat ini
     }
-    
-    public int getBusId() {
-        return busId;        
+
+    public String getDepartureInfo() {
+        SimpleDateFormat dateFormat = new SimpleDateFormat("MMMM dd, yyyy HH:mm:ss");
+        return "Bus ID: " + busId + "\nBus Seat: " + busSeat + "\nDeparture Date: " + dateFormat.format(departureDate.getTime());
+    }
+
+    public String getTime() {
+        SimpleDateFormat dateFormat = new SimpleDateFormat("MMMM dd, yyyy HH:mm:ss");
+        String currdate = dateFormat.format(departureDate.getTime());
+        //return dateFormat.format(super.getTime().getTime());
+        return currdate;
     }
 }

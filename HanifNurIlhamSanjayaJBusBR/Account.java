@@ -24,8 +24,8 @@ public class Account extends Serializable implements FileParser
         this.password = password;
     }
     
-    public void write() {
-
+    public Object write() {
+        return null;
     }
 
     @Override

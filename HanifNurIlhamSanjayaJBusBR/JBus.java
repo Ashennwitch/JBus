@@ -1,5 +1,8 @@
 package HanifNurIlhamSanjayaJBusBR;
-
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.List;
+import java.util.Map;
 /**
  * Write a description of class JBus here.
  *
@@ -9,6 +12,29 @@ package HanifNurIlhamSanjayaJBusBR;
 public class JBus {
  
     public static void main(String[] args) {
+       Bus testBus = new Bus(1, "Hanif Bus", Facility.LUNCH, new Price(750000, 5), 25, BusType.REGULER, City.JAKARTA, new Station(20, "Pocin", City.DEPOK,"Blok duku"), new Station(30, "Gondangdia", City.DEPOK,"Blok apel"));
+
+
+        Payment testPayment = new Payment(1, 2, 3, 4, "BR");
+
+        System.out.println("Departure Info: " + testPayment.getDepartureInfo());
+
+        System.out.println("Time: " + testPayment.getTime());
+
+        // Buat jadwal keberangkatan untuk Bus
+        Calendar schedule1 = Calendar.getInstance();
+        testBus.addSchedule(schedule1);
+
+        Calendar schedule2 = Calendar.getInstance();
+        schedule2.add(Calendar.DAY_OF_MONTH, 3);
+        testBus.addSchedule(schedule2);
+
+        // Cetak jadwal keberangkatan untuk Bus
+        for (Schedule s : testBus.schedules) {
+            testBus.printSchedule();
+        }
+    
+
        /* Bus testBus = createBus();
         System.out.println(testBus.name);
         System.out.println(testBus.facility);
@@ -54,12 +80,18 @@ public class JBus {
     System.out.println(Validate.filter(unfilteredArray, 10000, false));
     }
     
-  // public static Bus createBus() {
-   //     Price price = new Price(750000, 5);
-   //     Bus bus = new Bus(2403,"hanif bus", Facility.LUNCH, price, 25);
-  //      return bus;
-  //  }
-   
+   public static Bus createBus() {
+        Price price = new Price(750000, 5);
+        Bus bus = new Bus(1, "Netlab Bus", Facility.LUNCH, price, 25, BusType.REGULER, City.BANDUNG, new Station(1, "Depok Terminal", City.DEPOK, "Jl. Margonda Raya"), new Station(2, "Halte UI", City.JAKARTA, "Universitas Indonesia"));
+        return bus;
+    }
+    
+   // public static Bus createBus() {
+     //   Price price = new Price(750000, 5);
+     //   Bus bus = new Bus(2403,"hanif bus", Facility.LUNCH, price, 25, );
+     //   return bus;
+    //}
+    
     public int getBusId() {
         return 0;
     }

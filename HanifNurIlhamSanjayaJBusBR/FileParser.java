@@ -9,6 +9,6 @@ package HanifNurIlhamSanjayaJBusBR;
  */
 public interface FileParser
 {
-    public void write();
+    public Object write();
     public boolean read(String filename);
 }

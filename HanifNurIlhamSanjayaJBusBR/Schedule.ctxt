@@ -1,0 +1,11 @@
+#BlueJ class context
+comment0.target=Schedule
+comment1.params=departureSchedule\ numberOfSeats
+comment1.target=Schedule(java.util.Calendar,\ int)
+comment2.params=numberOfSeats
+comment2.target=void\ initializeSeatAvailability(int)
+comment3.params=
+comment3.target=java.util.Calendar\ getDepartureSchedule()
+comment4.params=
+comment4.target=java.util.Map\ getSeatAvailability()
+numComments=5
