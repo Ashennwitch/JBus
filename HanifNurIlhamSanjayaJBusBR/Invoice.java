@@ -11,7 +11,7 @@ public class Invoice extends Serializable
 {
     
     // instance variables - replace the example below with your own
-    public Calendar time;
+    public Timestamp time;
     public int buyerId;
     public int renterId;
     public Account buyer;
@@ -22,23 +22,23 @@ public class Invoice extends Serializable
     /**
      * Constructor for objects of class Invoice
      */
-    protected Invoice(int id, int buyerId, int renterId, Calendar time)
+    protected Invoice(int id, int buyerId, int renterId)
     {
         // initialise instance variables
         super(id);
         this.buyerId = buyerId;
         this.renterId = renterId;
-        this.time = Calendar.getInstance();
+        this.time = new Timestamp(System.currentTimeMillis());
         rating = BusRating.NONE;
         status = PaymentStatus.WAITING;
         
     }
     
-    public Invoice(int id, Account buyer, Renter renter, Calendar time) {
+    public Invoice(int id, Account buyer, Renter renter) {
         super(id);
         this.buyer = buyer;
         this.renter = renter;
-        this.time = Calendar.getInstance();
+        this.time = new Timestamp(System.currentTimeMillis());
         this.buyerId = buyerId;
         this.renterId = renterId;
         rating = BusRating.NONE;

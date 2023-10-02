@@ -3,6 +3,8 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 import java.util.Map;
+import java.sql.Timestamp;
+
 /**
  * Write a description of class JBus here.
  *
@@ -12,9 +14,36 @@ import java.util.Map;
 public class JBus {
  
     public static void main(String[] args) {
-       Bus testBus = new Bus(1, "Hanif Bus", Facility.LUNCH, new Price(750000, 5), 25, BusType.REGULER, City.JAKARTA, new Station(20, "Pocin", City.DEPOK,"Blok duku"), new Station(30, "Gondangdia", City.DEPOK,"Blok apel"));
+        Bus b = createBus();
+        Timestamp schedule1 = Timestamp.valueOf("2023-7-18 15:00:00");
+        Timestamp schedule2 = Timestamp.valueOf("2023-7-20 12:00:00");
+        b.createSchedule(schedule1, 12);
+        b.createSchedule(schedule2, 12);
+        b.schedules.forEach(Schedule::printSchedule);
+        // Invalid date
+        Timestamp t1 = Timestamp.valueOf("2023-7-19 15:00:00");
+        System.out.println("Make booking at July 19, 2023 15:00:00 Seat BR12");
+        System.out.println(Payment.makeBooking(t1, "BR12", b));
+        // Valid date, invalid seat
+        Timestamp t2 = Timestamp.valueOf("2023-7-18 15:00:00");
+        System.out.println("\nMake booking at July 18, 2023 15:00:00 Seat BR20");
+        System.out.println(Payment.makeBooking(t2, "BR20", b));
+        // Valid date, valid seat
+        System.out.println("\nMake booking at July 18, 2023 15:00:00 Seat BR07");
+        System.out.println(Payment.makeBooking(t2, "BR07", b));
+        Timestamp t3 = Timestamp.valueOf("2023-7-20 12:00:00");
+        System.out.println("\nMake booking at July 20, 2023 12:00:00 Seat BR01");
+        System.out.println(Payment.makeBooking(t3, "BR01", b));
+        System.out.println("\nMake booking at July 20, 2023 12:00:00 Seat BR01 again");
+        System.out.println(Payment.makeBooking(t3, "BR01", b));
+        // Check if the data changed
+        System.out.println("\nUpdated Schedule\n");
+        b.schedules.forEach(Schedule::printSchedule);        
+}    
+        
+       //Bus testBus = new Bus(1, "Hanif Bus", Facility.LUNCH, new Price(750000, 5), 25, BusType.REGULER, City.JAKARTA, new Station(20, "Pocin", City.DEPOK,"Blok duku"), new Station(30, "Gondangdia", City.DEPOK,"Blok apel"));
 
-
+/*
         Payment testPayment = new Payment(1, 2, 3, 4, "BR");
 
         System.out.println("Departure Info: " + testPayment.getDepartureInfo());
@@ -33,7 +62,7 @@ public class JBus {
         for (Schedule s : testBus.schedules) {
             testBus.printSchedule(s);
         }
-    
+*/    
 
        /* Bus testBus = createBus();
         System.out.println(testBus.name);
@@ -64,7 +93,7 @@ public class JBus {
         System.out.println(testPrice);
         System.out.println(testRating);
         */
-       
+/*       
     Price[] unfilteredArray = new Price[5];
     for (int i = 0; i<unfilteredArray.length; i++) {
         int j = 5000;
@@ -78,7 +107,8 @@ public class JBus {
     System.out.println(Validate.filter(unfilteredArray, 12000, true));
     System.out.println("Above 10000.0");
     System.out.println(Validate.filter(unfilteredArray, 10000, false));
-    }
+*/   
+
     
    public static Bus createBus() {
         Price price = new Price(750000, 5);

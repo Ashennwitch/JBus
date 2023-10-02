@@ -5,6 +5,7 @@ import java.util.Calendar;
 import java.util.List;
 import java.util.Map;
 import java.text.SimpleDateFormat;
+import java.sql.Timestamp;
 
 /**
  * Write a description of class Bus here.
@@ -58,22 +59,14 @@ public class Bus extends Serializable implements FileParser
             + "Bus arrival: " + arrival + "\n";
     }
     
-        public void addSchedule(Calendar calendar) {
-        Schedule schedule = new Schedule(calendar, capacity);
+        public void addSchedule(Timestamp timestamp) {
+        Schedule schedule = new Schedule(timestamp, capacity);
         schedules.add(schedule);
     }
-
-    public void printSchedule(Schedule schedule) {
-     SimpleDateFormat dateFormat = new SimpleDateFormat("MMMM dd, yyyy HH:mm:ss");
-        System.out.println("Bus Schedule for " + name);
-    // for (schedule : schedules) {
-        System.out.println("Tanggal Keberangkatan: " + dateFormat.format(schedule.getDepartureSchedule().getTime()));
-        System.out.println("Seat Availability:");
-            for (Map.Entry<String, Boolean> entry : schedule.getSeatAvailability().entrySet()) {
-                String seatCode = entry.getKey();
-                boolean isAvailable = entry.getValue();
-                System.out.println("Seat " + seatCode + ": " + (isAvailable ? "Available" : "Booked"));
-    //       }
-        } 
+    
+    public void createSchedule(Timestamp departureSchedule, int numberOfSeats) {
+    Schedule schedule = new Schedule(departureSchedule, numberOfSeats);
+    schedules.add(schedule);
     }
+
 }

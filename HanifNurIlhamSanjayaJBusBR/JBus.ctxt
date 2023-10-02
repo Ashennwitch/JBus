@@ -9,6 +9,7 @@ comment11.params=price\ numberOfSeat
 comment11.target=int\ getTotalPrice(int,\ int)
 comment2.params=
 comment2.target=Bus\ createBus()
+comment2.text=\ \ \ \ \ \ \ \r\n\ \ \ \ Price[]\ unfilteredArray\ \=\ new\ Price[5];\r\n\ \ \ \ for\ (int\ i\ \=\ 0;\ i<unfilteredArray.length;\ i++)\ {\r\n\ \ \ \ \ \ \ \ int\ j\ \=\ 5000;\r\n\ \ \ \ \ \ \ \ unfilteredArray[i]\ \=\ new\ Price((i+1)*j);\r\n\ \ \ \ }\r\n\ \ \ \ System.out.println("Price\ List");\r\n\ \ \ \ for\ (Price\ price\ \:\ unfilteredArray)\ {\r\n\ \ \ \ \ \ \ \ System.out.println(price.price);\r\n\ \ \ \ }\r\n\ \ \ \ System.out.println("Below\ 12000.0");\r\n\ \ \ \ System.out.println(Validate.filter(unfilteredArray,\ 12000,\ true));\r\n\ \ \ \ System.out.println("Above\ 10000.0");\r\n\ \ \ \ System.out.println(Validate.filter(unfilteredArray,\ 10000,\ false));\r\n
 comment3.params=
 comment3.target=int\ getBusId()
 comment4.params=
