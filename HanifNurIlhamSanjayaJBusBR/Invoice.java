@@ -30,8 +30,7 @@ public class Invoice extends Serializable
         this.renterId = renterId;
         this.time = new Timestamp(System.currentTimeMillis());
         rating = BusRating.NONE;
-        status = PaymentStatus.WAITING;
-        
+        status = PaymentStatus.WAITING;        
     }
     
     public Invoice(int id, Account buyer, Renter renter) {

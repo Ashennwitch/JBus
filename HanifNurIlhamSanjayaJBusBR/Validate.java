@@ -28,18 +28,18 @@ public class Validate
      */
     public static ArrayList filter(Price [] list, int value, boolean less)
     {
-        ArrayList<Price> filteredList = new ArrayList<>();
+        ArrayList filteredList = new ArrayList<>();
 
         // Iterasi melalui array list
         for (Price price : list) {
             // Memeriksa apakah price sesuai dengan kriteria less
             if (less) {
                 if (price.price <= value) {
-                    filteredList.add(price);
+                    filteredList.add(price.price);
                 }
             } else {
                 if (price.price > value) {
-                    filteredList.add(price);
+                    filteredList.add(price.price);
                 }
             }
         }
