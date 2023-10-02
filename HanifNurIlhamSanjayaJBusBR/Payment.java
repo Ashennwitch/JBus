@@ -4,9 +4,9 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
 public class Payment extends Invoice {
-    private Calendar departureDate;
+    public Calendar departureDate;
     private int busId;
-    private String busSeat;
+    public String busSeat;
 
     public Payment(int id, int buyerId, int renterId, int busId, String busSeat) {
         super(id, buyerId, renterId, Calendar.getInstance());
@@ -26,12 +26,17 @@ public class Payment extends Invoice {
 
     public String getDepartureInfo() {
         SimpleDateFormat dateFormat = new SimpleDateFormat("MMMM dd, yyyy HH:mm:ss");
-        return "Bus ID: " + busId + "\nBus Seat: " + busSeat + "\nDeparture Date: " + dateFormat.format(departureDate.getTime());
+        return "Payment ID: " + super.id +
+                "\nBuyer ID: " + super.buyerId +
+                "\nRenter ID: " + super.renterId +
+                "\nBus ID: " + busId + 
+                "\nBus Seat: " + busSeat + 
+                "\nDeparture Date: " + dateFormat.format(departureDate.getTime());
     }
 
     public String getTime() {
         SimpleDateFormat dateFormat = new SimpleDateFormat("MMMM dd, yyyy HH:mm:ss");
-        String currdate = dateFormat.format(departureDate.getTime());
+        String currdate = dateFormat.format(super.time.getTime());
         //return dateFormat.format(super.getTime().getTime());
         return currdate;
     }

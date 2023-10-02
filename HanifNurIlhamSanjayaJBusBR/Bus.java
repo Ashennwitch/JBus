@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 import java.util.Map;
+import java.text.SimpleDateFormat;
 
 /**
  * Write a description of class Bus here.
@@ -62,17 +63,17 @@ public class Bus extends Serializable implements FileParser
         schedules.add(schedule);
     }
 
-    public void printSchedule() {
+    public void printSchedule(Schedule schedule) {
+     SimpleDateFormat dateFormat = new SimpleDateFormat("MMMM dd, yyyy HH:mm:ss");
         System.out.println("Bus Schedule for " + name);
-        for (Schedule schedule : schedules) {
-            System.out.println("Departure Date: " + schedule.getDepartureSchedule().getTime());
-            System.out.println("Seat Availability:");
+    // for (schedule : schedules) {
+        System.out.println("Tanggal Keberangkatan: " + dateFormat.format(schedule.getDepartureSchedule().getTime()));
+        System.out.println("Seat Availability:");
             for (Map.Entry<String, Boolean> entry : schedule.getSeatAvailability().entrySet()) {
                 String seatCode = entry.getKey();
                 boolean isAvailable = entry.getValue();
                 System.out.println("Seat " + seatCode + ": " + (isAvailable ? "Available" : "Booked"));
-            }
-        }
+    //       }
+        } 
     }
-
 }

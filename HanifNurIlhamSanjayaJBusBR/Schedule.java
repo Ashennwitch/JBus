@@ -16,7 +16,7 @@ public class Schedule {
     private void initializeSeatAvailability(int numberOfSeats) {
         seatAvailability = new LinkedHashMap<>();
         for (int seatNumber = 1; seatNumber <= numberOfSeats; seatNumber++) {
-            String seatCode = "RS" + seatNumber;
+            String seatCode = "BR" + seatNumber;
             seatAvailability.put(seatCode, true);
         }
     }

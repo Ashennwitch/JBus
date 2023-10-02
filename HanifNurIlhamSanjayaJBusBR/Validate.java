@@ -26,7 +26,7 @@ public class Validate
      * @param  y  a sample parameter for a method
      * @return    the sum of x and y
      */
-    public static ArrayList filter(Price[] list, int value, boolean less)
+    public static ArrayList filter(Price [] list, int value, boolean less)
     {
         ArrayList<Price> filteredList = new ArrayList<>();
 

@@ -31,7 +31,7 @@ public class JBus {
 
         // Cetak jadwal keberangkatan untuk Bus
         for (Schedule s : testBus.schedules) {
-            testBus.printSchedule();
+            testBus.printSchedule(s);
         }
     
 
