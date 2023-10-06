@@ -14,6 +14,17 @@ import java.sql.Timestamp;
 public class JBus {
  
     public static void main(String[] args) {
+        Integer[] numbers = {10, 20, 30, 40, 50};
+        int valueToCheck = 30;
+
+        boolean result = Algorithm.exists(numbers, valueToCheck);
+        if (result) {
+            System.out.println(valueToCheck + " terdapat dalam array.");
+        }
+        else {
+            System.out.println(valueToCheck + " tidak terdapat dalam array");
+        }
+
         Bus b = createBus();
         Timestamp schedule1 = Timestamp.valueOf("2023-7-18 15:00:00");
         Timestamp schedule2 = Timestamp.valueOf("2023-7-20 12:00:00");
