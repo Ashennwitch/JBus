@@ -25,9 +25,6 @@ public class Payment extends Invoice {
         this.departureDate = departureDate;
     }
 
-
-
-
     public String getDepartureInfo() {
         SimpleDateFormat dateFormat = new SimpleDateFormat("MMMM dd, yyyy HH:mm:ss");
         return "Payment ID: " + super.id +
