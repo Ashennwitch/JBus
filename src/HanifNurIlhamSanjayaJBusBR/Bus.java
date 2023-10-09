@@ -60,8 +60,9 @@ public class Bus extends Serializable implements FileParser
     }
     
         public void addSchedule(Timestamp timestamp, int numberOfSeats) {
-        Schedule schedule = new Schedule(timestamp, capacity);
+        Schedule schedule = new Schedule(timestamp,  numberOfSeats);
         schedules.add(schedule);
     }
-    
+
+
 }

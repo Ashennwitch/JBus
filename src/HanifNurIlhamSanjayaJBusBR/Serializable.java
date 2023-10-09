@@ -9,29 +9,29 @@ import java.util.HashMap;
  * @version (a version number or a date)
  */
 
-public class Serializable implements Comparable<Serializable>
-{
-    public final int id;
+public class Serializable {
     private static HashMap<Class<?>, Integer> mapCounter = new HashMap<>();
+    public final int id;
 
-    protected Serializable(int id)
-    {
-        this.id = id;
+    protected Serializable(int id) {
+        // Retrieve the class of the current instance
         Class<?> clazz = this.getClass();
-        if (!mapCounter.containsKey(clazz) || id >= mapCounter.get(clazz)) {
-            mapCounter.put(clazz, id + 1);
-        }
+        // Get the current serial number or initialize to 0 if not found
+        int serial = mapCounter.getOrDefault(clazz, 0);
+        // Increment the serial number and update the map
+        mapCounter.put(clazz, serial + 1);
+        // Assign the serial number as the ID for this instance
+        this.id = serial;
     }
-
-    public static <T> void setLastAssignedId(Class<T> clazz, int lastId) {
-        mapCounter.put(clazz, lastId);
+    public static <T> Integer setLastAssignedId(Class<T> clazz, int id) {
+        return mapCounter.put(clazz, id);
     }
 
     public static <T> Integer getLastAssignedId(Class<T> clazz) {
         return mapCounter.get(clazz);
     }
 
-    @Override
+
     public int compareTo(Serializable other) {
         return Integer.compare(this.id, other.id);
     }
