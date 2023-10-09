@@ -38,22 +38,22 @@ public class JBus {
         String msgFailed = "Booking Failed";
         // valid date, invalid seat = Booking Failed
         Timestamp t1 = Timestamp.valueOf("2023-7-19 15:00:00");
-        System.out.println("\nMake booking at July 19, 2023 15:00:00 Seats: S17 S18");
-        System.out.println(Payment.makeBooking(t1, List.of("S17", "S18"), b)? msgSuccess : msgFailed);
+        System.out.println("\nMake booking at July 19, 2023 15:00:00 Seats: BR17 BR18");
+        System.out.println(Payment.makeBooking(t1, List.of("BR17", "BR18"), b)? msgSuccess : msgFailed);
         // valid date, invalid seat = Booking Failed
         Timestamp t2 = Timestamp.valueOf("2023-7-18 15:00:00");
-        System.out.println("Make booking at July 18, 2023 15:00:00 Seat S26");
-        System.out.println(Payment.makeBooking(t2, "S26", b)? msgSuccess : msgFailed);
+        System.out.println("Make booking at July 18, 2023 15:00:00 Seat BR26");
+        System.out.println(Payment.makeBooking(t2, "BR26", b)? msgSuccess : msgFailed);
         // valid date, valid seat = Booking Success
-        System.out.println("Make booking at July 18, 2023 15:00:00 Seats: S7 S8");
-        System.out.println(Payment.makeBooking(t2, List.of("S7", "S8"), b)? msgSuccess : msgFailed);
+        System.out.println("Make booking at July 18, 2023 15:00:00 Seats: BR7 BR8");
+        System.out.println(Payment.makeBooking(t2, List.of("BR7", "BR8"), b)? msgSuccess : msgFailed);
         // valid date, valid seat = Booking Success
         Timestamp t3 = Timestamp.valueOf("2023-7-20 12:00:00");
-        System.out.println("Make booking at July 20, 2023 12:00:00 Seats: S1 S2");
-        System.out.println(Payment.makeBooking(t3, List.of("S1", "S2"), b)? msgSuccess : msgFailed);
+        System.out.println("Make booking at July 20, 2023 12:00:00 Seats: BR1 BR2");
+        System.out.println(Payment.makeBooking(t3, List.of("BR1", "BR2"), b)? msgSuccess : msgFailed);
         // valid date, book the same seat = Booking Failed
-        System.out.println("Make booking at July 20, 2023 12:00:00 Seat S1");
-        System.out.println(Payment.makeBooking(t3, "S1", b)? msgSuccess : msgFailed);
+        System.out.println("Make booking at July 20, 2023 12:00:00 Seat BR1");
+        System.out.println(Payment.makeBooking(t3, "BR1", b)? msgSuccess : msgFailed);
         // check if the data changed
         System.out.println("\nUpdated Schedule");
         Algorithm.paginate(b.schedules, 0, 4, t-> true).forEach(System.out::println);
