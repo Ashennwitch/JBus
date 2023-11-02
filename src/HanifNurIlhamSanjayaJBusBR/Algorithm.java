@@ -153,54 +153,31 @@ public class Algorithm {
             return result;
         }
 
-        public static <T> List<T> paginate(T[] array, int page, int pageSize, Predicate<T> pred) {
-            return paginate(Arrays.asList(array), page, pageSize, pred);
-        }
+    public static <T> List<T> paginate(T[] array, int page, int pageSize, Predicate<T> pred) {
+        return paginate(List.of(array), page, pageSize, pred);
+    }
 
-        public static <T> List<T> paginate(Iterable<T> iterable, int page, int pageSize, Predicate<T> pred) {
-            Iterator<T> iterator = iterable.iterator();
-            List<T> result = new ArrayList<>();
-            int startIdx = page * pageSize;
-            int endIdx = startIdx + pageSize;
+    public static <T> List<T> paginate(Iterable<T> iterable, int page, int pageSize, Predicate<T> pred) {
+        List<T> result = new ArrayList<>();
+        int startIdx = page * pageSize;
+        int endIdx = (page + 1) * pageSize;
 
-            int currentIndex = 0;
-            while (iterator.hasNext()) {
-                T current = iterator.next();
-                if (currentIndex >= startIdx) {
-                    if (pred.predicate(current)) {
-                        result.add(current);
-                    }
-                }
-                if (currentIndex >= endIdx) {
-                    break;
+        int currentIndex = 0;
+        for (T item : iterable) {
+            if (pred.predicate(item)) {
+                if (currentIndex >= startIdx && currentIndex < endIdx) {
+                    result.add(item);
                 }
                 currentIndex++;
             }
-
-            return result;
         }
 
-        public static <T> List<T> paginate(Iterator<T> iterator, int page, int pageSize, Predicate<T> pred) {
-            List<T> result = new ArrayList<>();
-            int startIdx = page * pageSize;
-            int endIdx = startIdx + pageSize;
+        return result;
+    }
 
-            int currentIndex = 0;
-            while (iterator.hasNext()) {
-                T current = iterator.next();
-                if (currentIndex >= startIdx) {
-                    if (pred.predicate(current)) {
-                        result.add(current);
-                    }
-                }
-                if (currentIndex >= endIdx) {
-                    break;
-                }
-                currentIndex++;
-            }
-
-            return result;
-        }
-
+    public static <T> List<T> paginate(Iterator<T> iterator, int page, int pageSize, Predicate<T> pred) {
+        List<T> result = new ArrayList<>();
+        return result;
+    }
 
 }

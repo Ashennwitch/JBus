@@ -51,10 +51,9 @@ public class Payment extends Invoice {
         return null;
     }
 
-    public static Schedule availableSchedule(List<Timestamp> departureSchedules, String seat, Bus bus) {
-        for (Timestamp departureSchedule : departureSchedules) {
-            Schedule schedule = availableSchedule(departureSchedule, seat, bus);
-            if (schedule != null) {
+    public static Schedule availableSchedule(Timestamp departureSchedule, List<String> seats, Bus bus) {
+        for (Schedule schedule : bus.schedules) {
+            if (schedule.departureSchedule.equals(departureSchedule) && schedule.isSeatAvailable(seats)) {
                 return schedule;
             }
         }
@@ -73,27 +72,13 @@ public class Payment extends Invoice {
         return false; // Booking gagal
     }
 
-    public static boolean makeBooking(List<Timestamp> departureSchedules, String seat, Bus bus) {
-        for (Timestamp departureSchedule : departureSchedules) {
-            Schedule schedule = availableSchedule(departureSchedule, seat, bus);
-            if (schedule != null) {
-                schedule.bookSeat(seat);
-                return true;
-            }
-        }
-        return false;
-    }
     public static <E> boolean makeBooking(Timestamp departureSchedule, List<E> seats, Bus bus) {
-        for (Schedule schedule : bus.schedules) {
-            if (schedule.departureSchedule.equals(departureSchedule)) {
-                if (schedule.isSeatAvailable(seats.toString())) {
-                    schedule.bookSeat(seats.toString()); // Menjadikan kursi tidak tersedia
-                    return true; // Booking berhasil
-                }
-            }
+        Schedule schedule = availableSchedule(departureSchedule, seats.get(0).toString(), bus);
+        if (schedule != null && schedule.isSeatAvailable((List<String>) seats)) {
+            schedule.bookSeat((List<String>) seats); // Menjadikan kursi tidak tersedia
+            return true; // Booking berhasil
         }
         return false; // Booking gagal
     }
-
 
 }

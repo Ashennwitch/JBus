@@ -59,7 +59,7 @@ public class Bus extends Serializable implements FileParser
             + "Bus arrival: " + arrival + "\n";
     }
     
-        public void addSchedule(Timestamp timestamp) {
+    public void addSchedule(Timestamp timestamp) {
         Schedule schedule = new Schedule(timestamp,  this.capacity);
         schedules.add(schedule);
     }
