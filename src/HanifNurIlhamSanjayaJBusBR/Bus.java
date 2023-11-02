@@ -1,10 +1,7 @@
 package HanifNurIlhamSanjayaJBusBR;
 
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.List;
-import java.util.Map;
-import java.text.SimpleDateFormat;
 import java.sql.Timestamp;
 
 /**
@@ -25,8 +22,8 @@ public class Bus extends Serializable implements FileParser
     public City city;
     public List<Schedule> schedules;
     
-    public Bus(int id, String name, Facility facility, Price price, int capacity, BusType busType, City city, Station departure, Station arrival) {
-        super(id);
+    public Bus(String name, Facility facility, Price price, int capacity, BusType busType, City city, Station departure, Station arrival) {
+        super();
         this.name = name;
         this.facility = facility;
         this.price = price;

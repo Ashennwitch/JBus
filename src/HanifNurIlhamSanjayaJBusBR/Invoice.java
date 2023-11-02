@@ -1,5 +1,4 @@
 package HanifNurIlhamSanjayaJBusBR;
-import java.util.Calendar;
 import java.sql.Timestamp;
 /**
  * Write a description of class Invoice here.
@@ -22,10 +21,10 @@ public class Invoice extends Serializable
     /**
      * Constructor for objects of class Invoice
      */
-    protected Invoice(int id, int buyerId, int renterId)
+    protected Invoice(int buyerId, int renterId)
     {
         // initialise instance variables
-        super(id);
+        super();
         this.buyerId = buyerId;
         this.renterId = renterId;
         this.time = new Timestamp(System.currentTimeMillis());
@@ -34,7 +33,7 @@ public class Invoice extends Serializable
     }
     
     public Invoice(int id, Account buyer, Renter renter) {
-        super(id);
+        super();
         this.buyer = buyer;
         this.renter = renter;
         this.time = new Timestamp(System.currentTimeMillis());

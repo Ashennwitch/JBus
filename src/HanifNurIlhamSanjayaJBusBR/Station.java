@@ -17,9 +17,9 @@ public class Station extends Serializable
     /**
      * Constructor for objects of class Station
      */
-    public Station(int id, String stationName, City city, String address)
+    public Station(String stationName, City city, String address)
     {
-        super(id);// initialise instance variables
+        super();// initialise instance variables
         this.city = city;
         this.stationName = stationName;
         this.address = address;

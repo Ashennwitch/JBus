@@ -15,10 +15,10 @@ public class Review extends Serializable
     /**
      * Constructor for objects of class Review
      */
-    public Review(int id, String date, String desc)
+    public Review(String date, String desc)
     {
         // initialise instance variables
-        super(id);
+        super();
         this.date = date;
         this.desc = desc;
     }

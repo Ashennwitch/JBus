@@ -13,7 +13,7 @@ public class Serializable {
     private static HashMap<Class<?>, Integer> mapCounter = new HashMap<>();
     public final int id;
 
-    protected Serializable(int id) {
+    protected Serializable() {
         // Retrieve the class of the current instance
         Class<?> clazz = this.getClass();
         // Get the current serial number or initialize to 0 if not found

@@ -21,10 +21,10 @@ public class Voucher extends Serializable implements FileParser
      * Constructor for objects of class Voucher
      */
 
-    public Voucher(int id, String name, int code, Type type, double minimum, double cut)
+    public Voucher(String name, int code, Type type, double minimum, double cut)
     {
         // initialise instance variables
-        super(id);
+        super();
         this.name = name;
         this.used = false;
         this.minimum = minimum;
