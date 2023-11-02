@@ -8,7 +8,7 @@ package HanifNurIlhamSanjayaJBusBR;
  * @version (a version number or a date)
  */
 
-public class Voucher extends Serializable implements FileParser
+public class Voucher extends Serializable
 {
     public String name;
     private boolean used;
@@ -36,11 +36,6 @@ public class Voucher extends Serializable implements FileParser
     public Object write() {
         return null;
     }
-
-    @Override
-    public boolean read(String filename) {
-        return false; // Mengembalikan true jika berhasil membaca, false jika gagal
-    }    
     
     public boolean isUsed() {
         return used;

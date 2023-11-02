@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Map;
 import java.sql.Timestamp;
 import java.util.Arrays;
+import java.util.stream.Collectors;
 
 
 /**
@@ -66,4 +67,26 @@ public class JBus {
         Bus bus = new Bus("Netlab Bus", Facility.LUNCH, price, 25, BusType.REGULER, City.BANDUNG, new Station("Depok Terminal", City.DEPOK, "Jl. Margonda Raya"), new Station("Halte UI", City.JAKARTA, "Universitas Indonesia"));
         return bus;
     }
+
+    public static List<Bus> filterByDeparture(List<Bus> buses, City departure, int page, int pageSize) {
+        List<Bus> filteredBuses = new ArrayList<>();
+
+        // Filter buses by departure city
+        for (Bus bus : buses) {
+            if (bus.departure.equals(departure)) {
+                filteredBuses.add(bus);
+            }
+        }
+
+        // Calculate the start and end index for the specified page and pageSize
+        int startIndex = page * pageSize;
+        int endIndex = Math.min(startIndex + pageSize, filteredBuses.size());
+
+        // Retrieve the buses for the specified page
+        List<Bus> pageBuses = filteredBuses.subList(startIndex, endIndex);
+
+        return pageBuses;
+    }
+
+
 }

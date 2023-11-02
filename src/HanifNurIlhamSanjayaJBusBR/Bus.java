@@ -10,7 +10,7 @@ import java.sql.Timestamp;
  * @author (your name)
  * @version (a version number or a date)
  */
-public class Bus extends Serializable implements FileParser
+public class Bus extends Serializable
 {
     public int capacity;
     public Facility facility;
@@ -38,11 +38,6 @@ public class Bus extends Serializable implements FileParser
     public Object write() {
         return null;
     }
-
-    @Override
-    public boolean read(String filename) {
-        return false; // Mengembalikan true jika berhasil membaca, false jika gagal
-    }  
     
     public String toString() {
         return "Bus Id: " + super.id + "\n"
@@ -55,9 +50,12 @@ public class Bus extends Serializable implements FileParser
             + "Bus departure: " + departure + "\n"
             + "Bus arrival: " + arrival + "\n";
     }
-    
+
     public void addSchedule(Timestamp timestamp) {
-        Schedule schedule = new Schedule(timestamp,  this.capacity);
+        if (schedules.stream().anyMatch(schedule -> schedule.departureSchedule.equals(timestamp))) {
+            System.out.println("Jadwal dengan waktu yang sama sudah ada.");
+        }
+        Schedule schedule = new Schedule(timestamp, this.capacity);
         schedules.add(schedule);
     }
 

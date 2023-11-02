@@ -15,7 +15,6 @@ public class Payment extends Invoice {
         this.busId = busId;
         this.busSeat = busSeat;
         this.departureDate = departureDate;
-        //this.departureDate.add(Calendar.DATE, 2); // Menambahkan 2 hari dari waktu saat ini
     }
 
     public Payment(int id, Account buyer, Renter renter, int busId, String busSeat, Timestamp departureDate) {
