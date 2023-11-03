@@ -7,6 +7,8 @@ import java.sql.Timestamp;
 import java.util.Arrays;
 import java.util.stream.Collectors;
 
+import static HanifNurIlhamSanjayaJBusBR.Algorithm.paginate;
+
 
 /**
  * Write a description of class JBus here.
@@ -28,10 +30,10 @@ public class JBus {
 
         listOfSchedules.forEach(b::addSchedule);
         System.out.println("Page 1");
-        Algorithm.paginate(b.schedules, 0, 3, t -> true).forEach(System.out::println);
+        paginate(b.schedules, 0, 3, t -> true).forEach(System.out::println);
         System.out.println("=====================================================");
         System.out.println("Page 2");
-        Algorithm.paginate(b.schedules, 1, 3, t -> true).forEach(System.out::println);
+        paginate(b.schedules, 1, 3, t -> true).forEach(System.out::println);
         System.out.println("=====================================================");
 
         // Tes Booking
@@ -59,7 +61,7 @@ public class JBus {
         System.out.println(Payment.makeBooking(t3, "BR1", b) ? msgSuccess : msgFailed);
         // check if the data changed
         System.out.println("\nUpdated Schedule");
-        Algorithm.paginate(b.schedules, 0, 4, t -> true).forEach(System.out::println);
+        paginate(b.schedules, 0, 4, t -> true).forEach(System.out::println);
     }
 
     public static Bus createBus() {
@@ -73,7 +75,7 @@ public class JBus {
 
         // Filter buses by departure city
         for (Bus bus : buses) {
-            if (bus.departure.equals(departure)) {
+            if (bus.departure.city.equals(departure)) {
                 filteredBuses.add(bus);
             }
         }
@@ -88,5 +90,46 @@ public class JBus {
         return pageBuses;
     }
 
+    public static List<Bus> filterByPrice(List<Bus> buses, int minPrice, int maxPrice) {
+        List<Bus> filteredBuses = new ArrayList<>();
+
+        for (Bus bus : buses) {
+
+            if (bus.price.price >= minPrice && bus.price.price <= maxPrice) {
+                filteredBuses.add(bus);
+            }
+        }
+
+        return filteredBuses;
+    }
+//bus.getId() == id)
+    public static Bus filterBusId(List<Bus> buses, int id) {
+        for (Bus bus : buses) {
+            if (bus.id == id){
+                return bus;
+            }
+        }
+        return null;
+    }
+
+    public static List<Bus> filterByDepartureAndArrival(List<Bus> buses, City departure, City arrival, int page, int pageSize) {
+        Predicate<Bus> filterPredicate = bus -> bus.departure.city.equals(departure) && bus.arrival.city.equals(arrival);
+
+        return paginate(buses, page, pageSize, filterPredicate);
+    }
+
+    Renter renter = new Renter(123, hanif, hanifs);
+
+
+    try {
+        String filepath =
+                "C:\\Users\\Hanif\\Documents\\DEV\\Praktikum OOP\\JBus\\data\\buses_CS.json";
+        JsonTable<Bus> busList = new JsonTable<>(Bus.class, filepath);
+        List<Bus> filteredBus =
+                filterByDeparture (busList, City.JAKARTA,1,10);
+        filteredBus.forEach (bus -> System.out.println(bus.toString()));
+    }
+    catch (Throwable t) {
+        t.printStackTrace();
 
 }
