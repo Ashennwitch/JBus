@@ -2,49 +2,34 @@ package HanifNurIlhamSanjayaJBusBR;
 
 import java.util.HashMap;
 
-/**
- * Write a description of class Serializable here.
- *
- * @author (your name)
- * @version (a version number or a date)
- */
-
 public class Serializable {
-    private static HashMap<Class<?>, Integer> mapCounter = new HashMap<>();
     public final int id;
-
-    protected Serializable() {
-        // Retrieve the class of the current instance
-        Class<?> clazz = this.getClass();
-        // Get the current serial number or initialize to 0 if not found
-        int serial = mapCounter.getOrDefault(clazz, 0);
-        // Increment the serial number and update the map
-        mapCounter.put(clazz, serial + 1);
-        // Assign the serial number as the ID for this instance
-        this.id = serial;
-    }
-    public static <T> Integer setLastAssignedId(Class<T> clazz, int id) {
-        return mapCounter.put(clazz, id);
+    private static HashMap<Class<?>, Integer> mapCounter = new HashMap<Class <?>, Integer>();
+    protected Serializable(){
+        Integer counter = mapCounter.get(getClass());
+        counter = counter == null ? 0 : counter + 1;
+        mapCounter.put(getClass(), counter);
+        this.id = counter;
     }
 
-    public static <T> Integer getLastAssignedId(Class<T> clazz) {
-        return mapCounter.get(clazz);
+    public static <T> Integer getLastAssignedId(Class<T> getter ){
+        return mapCounter.get(getter);
     }
 
-
-    public int compareTo(Serializable other) {
-        return Integer.compare(this.id, other.id);
+    public static <T> Integer setLastAssignedId(Class<T> setter, int number){
+        return mapCounter.put(setter, number);
     }
 
-    @Override
-    public boolean equals(Object obj) {
-        if (obj instanceof Serializable) {
-            return this.id == ((Serializable)obj).id;
-        }
-        return false;
+    public int compareTo(Serializable temp){
+        return ((Integer)this.id).compareTo(temp.id);
     }
 
-    public boolean equals(Serializable other) {
-        return this.id == other.id;
+    public boolean equals(Serializable temp){
+        return temp.id == this.id;
     }
+
+    public boolean equals(Object object){
+        return object instanceof Serializable && ((Serializable) object).id == this.id;
+    }
+
 }
