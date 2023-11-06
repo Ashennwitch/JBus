@@ -14,6 +14,9 @@ import static HanifNurIlhamSanjayaJBusBR.Algorithm.paginate;
 public class JBus {
 
     public static void main(String[] args) throws InterruptedException {
+        //testRegexForAccount();
+        //testRegexForRenter();
+
         String filePath = "C:\\Users\\Hanif\\Documents\\DEV\\Praktikum OOP\\JBus\\data\\accountDatabase.json";
 
         try {
@@ -95,4 +98,106 @@ public class JBus {
 
         return paginate(buses, page, pageSize, filterPredicate);
     }
+
+    /*// Method untuk test Regex
+    public static void testRegexForAccount() {
+        String[] validEmails = {
+                "example@example.com",
+                "myemail@mydomain.co",
+                "user1234@company.net"
+        };
+
+        String[] invalidEmails = {
+                "notanemail",
+                "no@tld",
+                "spaces @domain.com",
+                "@no_username.com",
+                "_rafieamandio@ui.ac.id",
+                "hanif.sanjaya@gmail.com",
+                "hanif-sanjaya@gmail.com",
+                "as@gamil23.com"
+        };
+
+        String[] validPasswords = {
+                "P@ssw0rd",
+                "Secure123",
+                "A1b2C3d4"
+        };
+
+        String[] invalidPasswords = {
+                "weak",
+                "12345678",
+                "no_uppercase",
+                "NO_LOWERCASE",
+                "asd asdasd"
+        };
+
+        for (String email : validEmails) {
+            boolean isValid = email.matches(Account.REGEX_EMAIL);
+            System.out.println(email + " is valid: " + isValid);
+        }
+
+        for (String email : invalidEmails) {
+            boolean isValid = email.matches(Account.REGEX_EMAIL);
+            System.out.println(email + " is valid: " + isValid);
+        }
+
+        for (String password : validPasswords) {
+            boolean isValid = password.matches(Account.REGEX_PASSWORD);
+            System.out.println(password + " is valid: " + isValid);
+        }
+
+        for (String password : invalidPasswords) {
+            boolean isValid = password.matches(Account.REGEX_PASSWORD);
+            System.out.println(password + " is valid: " + isValid);
+        }
+    }
+
+    public static void testRegexForRenter() {
+        String[] validPhones = {
+                "123456789",
+                "012345678901",
+                "99999999999"
+        };
+
+        String[] invalidPhones = {
+                "12abc3456",
+                "12345",
+                "1234567890123",
+                "abcde12345"
+        };
+
+        String[] validNames = {
+                "John_Doe1234",
+                "A_BC12345",
+                "Xyz1234"
+        };
+
+        String[] invalidNames = {
+                "1234Name",
+                "Name with spaces",
+                "Invalid#Name"
+        };
+
+        for (String phone : validPhones) {
+            boolean isValid = phone.matches(Renter.REGEX_PHONE);
+            System.out.println(phone + " is valid: " + isValid);
+        }
+
+        for (String phone : invalidPhones) {
+            boolean isValid = phone.matches(Renter.REGEX_PHONE);
+            System.out.println(phone + " is valid: " + isValid);
+        }
+
+        for (String name : validNames) {
+            boolean isValid = name.matches(Renter.REGEX_NAME);
+            System.out.println(name + " is valid: " + isValid);
+        }
+
+        for (String name : invalidNames) {
+            boolean isValid = name.matches(Renter.REGEX_NAME);
+            System.out.println(name + " is valid: " + isValid);
+        }
+    }
+     */
 }

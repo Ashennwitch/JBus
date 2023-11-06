@@ -13,7 +13,7 @@ public class Account extends Serializable {
     public String name;
     public String password;
     public static final String REGEX_EMAIL = "^[a-zA-Z0-9]+@[a-zA-Z]+(\\.[a-zA-Z]+)+$";
-    public static final String REGEX_PASSWORD = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)[A-Za-z\\d]{8,}$";
+    public static final String REGEX_PASSWORD = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=\\S+$).{8,}$";
 
     /**
      * Constructor for objects of class Account
