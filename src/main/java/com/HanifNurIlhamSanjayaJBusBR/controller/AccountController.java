@@ -1,4 +1,4 @@
-package controller;
+package com.HanifNurIlhamSanjayaJBusBR.controller;
 import com.HanifNurIlhamSanjayaJBusBR.Account;
 import org.springframework.web.bind.annotation.*;
 
