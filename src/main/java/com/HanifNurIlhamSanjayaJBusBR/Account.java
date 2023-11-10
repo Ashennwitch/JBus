@@ -16,21 +16,18 @@ public class Account extends Serializable {
     public String password;
     //public static final String REGEX_EMAIL = "^[a-zA-Z0-9]+@[a-zA-Z]+(\\.[a-zA-Z]+)+$";
     //public static final String REGEX_PASSWORD = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=\\S+$).{8,}$";
-    Renter company;
-    double balance;
+    public Renter company;
+    public double balance;
     public static final String REGEX_EMAIL = "^[a-zA-Z0-9]+@[a-zA-Z_]+?\\.[a-zA-Z.]+[a-zA-Z]+$";
-    public static final String REGEX_PASSWORD = "^( =.*[a-z])( =.*[A-Z])( =.*\\d)[a-zA-Z\\d]{8,}$";
+    public static final String REGEX_PASSWORD = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)[a-zA-Z\\d]{8,}$";
 
-
-    /**
-     * Constructor for objects of class Account
-     */
     public Account(String name, String email, String password) {
         super();
         this.name = name;
         this.email = email;
         this.password = password;
-        this.balance = 0;
+        this.company = null;
+        this.balance = 0.0;
     }
 
     public Object write() {
@@ -46,5 +43,16 @@ public class Account extends Serializable {
 
     public boolean validate() {
         return email.matches(REGEX_EMAIL) && password.matches(REGEX_PASSWORD);
+    }
+
+    public boolean topUp(double amount) {
+
+        if (amount <= 0) {
+            return false;
+        }
+
+        // Perform the top-up
+        this.balance += amount;
+        return true;
     }
 }

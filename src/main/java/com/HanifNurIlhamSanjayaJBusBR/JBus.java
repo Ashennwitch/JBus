@@ -4,6 +4,8 @@ import java.util.List;
 import java.sql.Timestamp;
 import java.util.concurrent.locks.StampedLock;
 import static com.HanifNurIlhamSanjayaJBusBR.Algorithm.paginate;
+
+import com.HanifNurIlhamSanjayaJBusBR.dbjson.JsonDBEngine;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -18,7 +20,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class JBus {
 
     public static void main(String[] args) throws InterruptedException {
+        JsonDBEngine.Run(JBus.class);
         SpringApplication.run(JBus.class, args);
+        Runtime.getRuntime().addShutdownHook(new Thread(() -> JsonDBEngine.join()));
 
         //testRegexForAccount();
         //testRegexForRenter();
