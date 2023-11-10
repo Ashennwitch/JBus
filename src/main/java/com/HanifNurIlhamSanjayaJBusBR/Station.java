@@ -1,6 +1,8 @@
 package com.HanifNurIlhamSanjayaJBusBR;
 
 
+import com.HanifNurIlhamSanjayaJBusBR.dbjson.Serializable;
+
 /**
  * Write a description of class Station here.
  *

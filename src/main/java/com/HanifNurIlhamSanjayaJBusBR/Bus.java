@@ -1,5 +1,7 @@
 package com.HanifNurIlhamSanjayaJBusBR;
 
+import com.HanifNurIlhamSanjayaJBusBR.dbjson.Serializable;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.sql.Timestamp;

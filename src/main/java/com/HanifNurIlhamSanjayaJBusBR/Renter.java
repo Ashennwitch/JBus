@@ -1,5 +1,7 @@
 package com.HanifNurIlhamSanjayaJBusBR;
 
+import com.HanifNurIlhamSanjayaJBusBR.dbjson.Serializable;
+
 public class Renter extends Serializable {
     private static final String REGEX_PHONE = "^[0-9]{9,12}$";
     private static final String REGEX_NAME = "^[A-Z][A-Z0-9_]{3,19}$";

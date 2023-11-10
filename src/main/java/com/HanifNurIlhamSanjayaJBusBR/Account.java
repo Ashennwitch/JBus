@@ -1,6 +1,8 @@
 package com.HanifNurIlhamSanjayaJBusBR;
 
 
+import com.HanifNurIlhamSanjayaJBusBR.dbjson.Serializable;
+
 /**
  * Write a description of class Account here.
  *
@@ -12,8 +14,13 @@ public class Account extends Serializable {
     public String email;
     public String name;
     public String password;
-    public static final String REGEX_EMAIL = "^[a-zA-Z0-9]+@[a-zA-Z]+(\\.[a-zA-Z]+)+$";
-    public static final String REGEX_PASSWORD = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=\\S+$).{8,}$";
+    //public static final String REGEX_EMAIL = "^[a-zA-Z0-9]+@[a-zA-Z]+(\\.[a-zA-Z]+)+$";
+    //public static final String REGEX_PASSWORD = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=\\S+$).{8,}$";
+    Renter company;
+    double balance;
+    public static final String REGEX_EMAIL = "^[a-zA-Z0-9]+@[a-zA-Z_]+?\\.[a-zA-Z.]+[a-zA-Z]+$";
+    public static final String REGEX_PASSWORD = "^( =.*[a-z])( =.*[A-Z])( =.*\\d)[a-zA-Z\\d]{8,}$";
+
 
     /**
      * Constructor for objects of class Account
@@ -23,6 +30,7 @@ public class Account extends Serializable {
         this.name = name;
         this.email = email;
         this.password = password;
+        this.balance = 0;
     }
 
     public Object write() {

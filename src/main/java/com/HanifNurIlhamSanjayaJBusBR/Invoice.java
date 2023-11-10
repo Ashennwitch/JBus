@@ -1,4 +1,6 @@
 package com.HanifNurIlhamSanjayaJBusBR;
+import com.HanifNurIlhamSanjayaJBusBR.dbjson.Serializable;
+
 import java.sql.Timestamp;
 /**
  * Write a description of class Invoice here.
