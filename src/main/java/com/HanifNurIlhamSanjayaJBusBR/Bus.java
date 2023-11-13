@@ -3,6 +3,7 @@ package com.HanifNurIlhamSanjayaJBusBR;
 import com.HanifNurIlhamSanjayaJBusBR.dbjson.Serializable;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.sql.Timestamp;
 
@@ -15,26 +16,27 @@ import java.sql.Timestamp;
 public class Bus extends Serializable
 {
     public int capacity;
-    public Facility facility;
+    public List<Facility> facilities;
     public String name;
     public Price price;
     public Station departure;
     public Station arrival;
     public BusType busType;
-    public City city;
     public List<Schedule> schedules;
+
+    public int accountId;
     
-    public Bus(String name, Facility facility, Price price, int capacity, BusType busType, City city, Station departure, Station arrival) {
+    public Bus(String name, List<Facility> facilities, Price price, int capacity, BusType busType, Station departure, Station arrival, int accountId) {
         super();
         this.name = name;
-        this.facility = facility;
         this.price = price;
         this.capacity = capacity;
         this.busType = busType;
-        this.city = city;
         this.departure = departure;
         this.arrival = arrival;
         this.schedules = new ArrayList<>();
+        this.accountId = accountId;
+        this.facilities = facilities;
     }
     
     public Object write() {
@@ -44,11 +46,10 @@ public class Bus extends Serializable
     public String toString() {
         return "Bus Id: " + super.id + "\n"
             + "Bus name: " + name + "\n"
-            + "Bus facility: " + facility + "\n"
+            + "Bus facility: " + facilities + "\n"
             + "Bus price: " + price + "\n"
             + "Bus capacity: " + capacity + "\n"
             + "Bus type: " + busType + "\n"
-            + "Bus city: " + city + "\n"
             + "Bus departure: " + departure + "\n"
             + "Bus arrival: " + arrival + "\n";
     }

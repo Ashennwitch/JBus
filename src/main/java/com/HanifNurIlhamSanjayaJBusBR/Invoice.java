@@ -34,7 +34,7 @@ public class Invoice extends Serializable
         status = PaymentStatus.WAITING;        
     }
     
-    public Invoice(int id, Account buyer, Renter renter) {
+    public Invoice(Account buyer, Renter renter) {
         super();
         this.buyer = buyer;
         this.renter = renter;

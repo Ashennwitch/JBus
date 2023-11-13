@@ -17,7 +17,7 @@ import static org.springframework.util.DigestUtils.md5Digest;
 @RequestMapping("/account")
 public class AccountController implements BasicGetController<Account> {
 
-    @JsonAutowired(value = Account.class, filepath = "../account_db.json")
+    @JsonAutowired(value = Account.class, filepath = "C:\\Users\\Hanif\\Documents\\DEV\\Praktikum OOP\\JBus\\src\\main\\java\\com\\HanifNurIlhamSanjayaJBusBR\\dbjson\\account_db.json")
     public static JsonTable<Account> accountTable;
 
     @Override

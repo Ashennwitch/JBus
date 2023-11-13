@@ -8,20 +8,20 @@ import java.util.List;
 public class Payment extends Invoice {
     public Timestamp departureDate;
     private int busId;
-    public String busSeat;
+    public List<String> busSeats;
 
-    public Payment(int id, int buyerId, int renterId, int busId, String busSeat, Timestamp departureDate) {
+    public Payment(int buyerId, int renterId, int busId, List<String> busSeats, Timestamp departureDate) {
         super(buyerId, renterId);
         this.busId = busId;
-        this.busSeat = busSeat;
         this.departureDate = departureDate;
+        this.busSeats = busSeats;
     }
 
-    public Payment(int id, Account buyer, Renter renter, int busId, String busSeat, Timestamp departureDate) {
-        super(id, buyer, renter);
+    public Payment(Account buyer, Renter renter, int busId, List<String> busSeats, Timestamp departureDate) {
+        super(buyer, renter);
         this.busId = busId;
-        this.busSeat = busSeat;
         this.departureDate = departureDate;
+        this.busSeats = busSeats;
     }
 
     public String getDepartureInfo() {
@@ -30,7 +30,7 @@ public class Payment extends Invoice {
                 "\nBuyer ID: " + super.buyerId +
                 "\nRenter ID: " + super.renterId +
                 "\nBus ID: " + busId +
-                "\nBus Seat: " + busSeat +
+                "\nBus Seat: " + busSeats +
                 "\nDeparture Date: " + dateFormat.format(departureDate.getTime());
     }
 
