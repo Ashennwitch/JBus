@@ -55,4 +55,5 @@ public class Account extends Serializable {
         this.balance += amount;
         return true;
     }
+
 }
