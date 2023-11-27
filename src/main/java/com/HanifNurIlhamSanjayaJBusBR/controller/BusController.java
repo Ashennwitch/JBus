@@ -86,4 +86,10 @@ public class BusController implements BasicGetController<Bus> {
             return new BaseResponse<>(false, "Failed to add schedule: Invalid timestamp format", null);
         }
     }
+
+    @GetMapping("/getMyBus")
+    public List<Bus> getMyBus(@RequestParam int accountId) {
+        return Algorithm.<Bus>collect(getJsonTable(),
+                b -> b.accountId == accountId);
+    }
 }
