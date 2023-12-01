@@ -58,7 +58,7 @@ public class AccountController implements BasicGetController<Account> {
 
         return new BaseResponse<>(true, "Berhasil register", account);
     }
-
+    
     @PostMapping("/login")
     public BaseResponse<Account> login(
             @RequestParam String email,
