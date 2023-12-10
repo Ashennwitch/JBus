@@ -92,4 +92,7 @@ public class BusController implements BasicGetController<Bus> {
         return Algorithm.<Bus>collect(getJsonTable(),
                 b -> b.accountId == accountId);
     }
+
+    @GetMapping("/getAll")
+    public List<Bus> getAllBus() { return getJsonTable();}
 }

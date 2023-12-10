@@ -3,15 +3,11 @@ package com.HanifNurIlhamSanjayaJBusBR.controller;
 import com.HanifNurIlhamSanjayaJBusBR.Account;
 import com.HanifNurIlhamSanjayaJBusBR.Algorithm;
 import com.HanifNurIlhamSanjayaJBusBR.Renter;
-import com.HanifNurIlhamSanjayaJBusBR.controller.BasicGetController;
-import com.HanifNurIlhamSanjayaJBusBR.controller.BaseResponse;
 import com.HanifNurIlhamSanjayaJBusBR.dbjson.JsonAutowired;
 import com.HanifNurIlhamSanjayaJBusBR.dbjson.JsonTable;
 import org.springframework.web.bind.annotation.*;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-
-import static org.springframework.util.DigestUtils.md5Digest;
 
 @RestController
 @RequestMapping("/account")
@@ -45,7 +41,7 @@ public class AccountController implements BasicGetController<Account> {
         }
         //bus -> bus.departure.city.equals(departure)
         // Check if email is unique
-        if (Algorithm.<Account>exists(accountTable, acc -> account.email.equals(account.email))) {
+        if (Algorithm.<Account>exists(accountTable, acc -> acc.email.equals(account.email))) {
             return new BaseResponse<>(false, "Gagal register: Email sudah terdaftar", null);
         }
 
@@ -76,7 +72,7 @@ public class AccountController implements BasicGetController<Account> {
         }
 
         // Find the account based on the provided email
-        Account account = Algorithm.<Account>find(accountTable, acc -> email.equals(email));
+        Account account = Algorithm.<Account>find(accountTable, acc -> acc.email.equals(email));
        //acc -> account.email.equals(account.email))
         // Check if the account is found
         if (account == null) {

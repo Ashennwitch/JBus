@@ -22,7 +22,11 @@ dependencies {
 }
 
 jar {
-    manifest {
-        attributes 'Main-class':'JBus'
-    }
+	manifest {
+		attributes 'Main-class':'JBus'
+	}
+}
+
+springBoot {
+	mainClass = 'com.HanifNurIlhamSanjayaJBusBR.JBus'
 }
